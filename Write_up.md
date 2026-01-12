@@ -40,3 +40,16 @@
 ![image](https://hackmd.io/_uploads/HySqAfGSWg.png)
 ![image](https://hackmd.io/_uploads/ryFsAzMr-l.png)
 - I use this method because NX is off
+- To be honest, i learnt from this ctf events that i should focus more on basic things like input function and attribute of %s to solve challenge in more basic ways
+
+## uof ctf
+### baby bof
+- The challenge is very simple as its name
+![image](https://hackmd.io/_uploads/Byvk6XzBbx.png)
+- I just need to use gets to overwrite saved rip with win function
+![image](https://hackmd.io/_uploads/ryf-TmzrZx.png)
+![image](https://hackmd.io/_uploads/r1ab6XGrbg.png)
+- Also pie and canary is off
+- So all i need to do is bypass strlen by give null byte first then overwrite saved rip
+- I may meet segment fault because of xmm0 or xmm1
+- But i can easily bypass it by add one more ret gadget or ret to 'win + 5', skipping push gadget in it
