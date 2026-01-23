@@ -50,4 +50,4 @@
 - But because i send 'sh' continuously with the flag section, 'sh' will be placed right under that section
 - So when it call system, it will be system('sh;111..')
 - The reason is '0x3b' is a ';' char
-- ';' act as 
+- ';' act as command separate operator, meaning it make the system call sh first then 111 later
