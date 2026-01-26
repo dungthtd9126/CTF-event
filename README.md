@@ -8,4 +8,12 @@
 
 - We can see that the seccomp jailed high byte of our buf when using read / write
 - Also, we cant call shell. So our only way is to read flag with some strange syscall
-- My method is call openat2 --> 
+- My method is call openat2 --> readv --> writev
+- readv and writev are alternative way of calling read / wrtie
+- These syscalls use a structure called iovec instead of a simple buffer pointer.
+```c=
+struct iovec {
+    void  *iov_base;    /* Starting address */
+    size_t iov_len;     /* Number of bytes to transfer */
+};
+```
