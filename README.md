@@ -45,12 +45,42 @@
 
 - _IO_flush_all is a function that will check each file structure and its sections to do check some conditions and do some function if those conditions are met. Then it will go to another file struct by looking at chain section storing another file struct
 - In this exploit, ill try calling _IO_OVERFLOW, which is a macro for some special action 
-- The func will call vtable + offset, in this case, im w
+- The func will call vtable + offset, in this case, it is [rax+0x18], rax is storing my fake vtable
 
-- To make the script simpler, ill set the mode = 0 and fp->_IO_write_ptr > fp->_IO_write_base to meet the condition 1 and trigger _IO_OVERFLOW
+<img width="1331" height="810" alt="image" src="https://github.com/user-attachments/assets/82247c52-b1f6-4ec8-8cf8-92af85c70af8" />
+
+- And if we look closely enough, we can see that our rdi stores flag of file struct almost all the time
+- This mean we can use a trick, overwrite fake vtable and set flag as 'sh'
+- But before that, we need to make the program call _IO_OVERFLOW. There are 2 ways to make that func being called, but ill use way 1: mode <= 0 and write_ptr > write base
+
+<img width="907" height="213" alt="image" src="https://github.com/user-attachments/assets/72c705aa-0871-434d-a510-874953350a19" />
+
+- Ill set the mode = 0 and fp->_IO_write_ptr > fp->_IO_write_base to meet the condition 1 and trigger _IO_OVERFLOW
 - From what i learnt, _IO_OVERFLOW is like a vtable jump of a file structure. So in this case, ill overwrite vtable of stdder for the purpose of jumping to IO_wfile_overflow --> which call doalloc if condition is meet --> Then call vtable of wdata with no vtable check if the condition is meet again
 - After all of that progress, when program call vtable of wdata. RDI is storing flag of current file strucure, '0x3b01010101010101'.
 - But because i send 'sh' continuously with the flag section, 'sh' will be placed right under that section
 - So when it call system, it will be system('sh;111..')
 - The reason is '0x3b' is a ';' char
-- ';' act as a command separate operator, meaning it call system('sh') first then system('111...') later
+- ';' act as a command separate operator, meaning it call system('sh') first then system('111...')
+- Another reaon that '0x3b01010101010101' is because i have to bypass flag check in the program.
+- If not, it may not behave like we want
+- As we can see, there are 2 flag check in each func, IO_wfile_overflow and doalloc
+- to bypass this, we need to set the flag at with value that part of it will joined in a compare math: 'and'
+
+
+<img width="1403" height="623" alt="image" src="https://github.com/user-attachments/assets/186d62d8-b44d-42bc-90bf-195d261b5317" />
+<img width="1379" height="139" alt="image" src="https://github.com/user-attachments/assets/2ba286c2-1252-4f3b-90e2-58f9ad763955" />
+
+ - 'jne' is jump if not equal "or" jump if not zero
+- And we dont want it to jump. So ill set each byte = 0x1 so both 'and' math will result in zero, leading program to trigger my final fake vtable in wide data-->vtable section
+- As we can see before, rdi is likely storing flag section of IO file
+
+<img width="1385" height="859" alt="image" src="https://github.com/user-attachments/assets/1b533f66-b3a9-4a6d-b222-8576e1b6dd8a" />
+
+- So i will connect string sh with 0x3b01... so program will call system('sh;0101...')
+
+<img width="1832" height="392" alt="image" src="https://github.com/user-attachments/assets/c1259a95-b74c-4bc3-a6e1-28398673ff90" />
+
+- In conclusion, this challenge is the first time i actually use fsop to shell without one gadget, and it taught me alot from set up flag to how _IO_flush_all actually works
+
+ 
