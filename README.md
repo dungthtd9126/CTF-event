@@ -39,3 +39,10 @@ struct iovec {
 - Finally, set rdi = 1 as stdout, then change syscall to writev and we'll get flag
 - writev don't have to be set up so much because it will use the same atributes of readv, only fd need to be changed
 
+## Zoro
+- This challenge is pretty good because i learnt some trick after solved it
+- This is a fmt str challenge
+- First, it gives me a libc address, i can rely on it to calculate base libc
+- Second, i can use fmt str twice. 
+- My method is use the first input to fmt str: overwrite value of malloc / free hook to one gadget
+- The reason is the libc version of binary is 
