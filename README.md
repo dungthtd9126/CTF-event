@@ -43,11 +43,14 @@
 
 <img width="987" height="662" alt="image" src="https://github.com/user-attachments/assets/7e369a6c-0a60-4535-b832-1218adde457e" />
 
-- And then it may call _IO_OVERFLOW when the conditions above it are meet
+- _IO_flush_all is a function that will check each file structure and its sections to do check some conditions and do some function if those conditions are met. Then it will go to another file struct by looking at chain section storing another file struct
+- In this exploit, ill try calling _IO_OVERFLOW, which is a macro for some special action 
+- The func will call vtable + offset, in this case, im w
+
 - To make the script simpler, ill set the mode = 0 and fp->_IO_write_ptr > fp->_IO_write_base to meet the condition 1 and trigger _IO_OVERFLOW
 - From what i learnt, _IO_OVERFLOW is like a vtable jump of a file structure. So in this case, ill overwrite vtable of stdder for the purpose of jumping to IO_wfile_overflow --> which call doalloc if condition is meet --> Then call vtable of wdata with no vtable check if the condition is meet again
 - After all of that progress, when program call vtable of wdata. RDI is storing flag of current file strucure, '0x3b01010101010101'.
 - But because i send 'sh' continuously with the flag section, 'sh' will be placed right under that section
 - So when it call system, it will be system('sh;111..')
 - The reason is '0x3b' is a ';' char
-- ';' act as command separate operator, meaning it make the system call sh first then 111 later
+- ';' act as a command separate operator, meaning it call system('sh') first then system('111...') later
