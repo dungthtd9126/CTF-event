@@ -44,5 +44,15 @@ struct iovec {
 - This is a fmt str challenge
 - First, it gives me a libc address, i can rely on it to calculate base libc
 - Second, i can use fmt str twice. 
-- My method is use the first input to fmt str: overwrite value of malloc / free hook to one gadget
-- The reason is the libc version of binary is 
+- My method is use the first input to fmt str: overwrite value of malloc / free hook to one gadget. I can input a lot bytes in first input so its good to fmt str in thiis step
+- The reason is the libc version of binary is 2.23
+<img width="785" height="337" alt="image" src="https://github.com/user-attachments/assets/184a55c3-a5bd-469e-b0a8-a85bcfb86181" />
+- But the real challenge of this program is the prohibited words
+- So i will need to use fmt str in full form like : "%p%p%p"
+- With that way, i can easily bypass the probited func and fmt str like normal, i just need to change the method a bit to align the full form fmtstr
+- The next input is only 10 bytes, but this is when we trigger malloc / free func to make it call one gadget
+- To make printf do that, ill have to use '%10000c", we should padding more than 10.000 words
+- The reason is when the padding is too big that overflow the size of allocated buf of program, printf will allocate another chunk / buf that is big enough to store the padding then print it
+<img width="850" height="635" alt="image" src="https://github.com/user-attachments/assets/ca3e48f8-ca13-4176-a9b0-25ddddb6a713" />
+- After that, The program frees the new chunk to give it back to the top chunk, this is when i get shell by one gadget
+- Note that im using free hook so it wil call shell when call free, you can use malloc hook, its the same way too
