@@ -63,12 +63,15 @@ struct iovec {
 - Hướng đi chính của mình trong challenge này là fmt str ghi đè vô saved rip để rop chain
 - Vì ngay tại thời điểm viết wu thì server đã bị đóng rồi nên mik sẽ sử dụng binary mô phỏng challenge blind này
 - Điều cần chú ý ở đây là mình có bug fmt string với lượng input lên tới 0x4ff bytes nên mình sẽ gửi 1 loạt fmtstr dạng %p để server output stack frame của chính nó
+
 ![image](https://hackmd.io/_uploads/BJ5ejjNLWx.png)
+
 - Mik cũng sẽ kết hợp script python để output nhìn đẹp với dễ nhìn hơn
 - Lúc này mik sẽ đưa tạm cả stack frame vào 1 file trên vsc để tiện xem lại nhiều lần
 - Như trên hình, mình thấy rằng rip sẽ ở %169$p, rbp ở %168$p
 - Do đó, mình có thể leak đc cả stack với libc
 - Cách mình nhận dạng đc vùng này cũng khá đơn giản, mình sẽ tạo đại 1 chall mô phỏng lại server và cố gắng khiến stack frame của nó gần như giống, offset khác thì chỉnh sau cũng đc
+
 ```c!=
 #include <stdio.h>
 #include <unistd.h>
@@ -95,10 +98,13 @@ int main(){
     return 0;
 }
 ```
+
 - Lúc này, mik sẽ gdb binary đã được khởi tạo để check 12 bit cuối của saved rip
 - Để khởi tạo binary có khả năng cao chuẩn với server thì mình sẽ tạo 1 dockerfile và lấy source đã tạo --> tạo ra binary trong container
 - Sau đó chỉ cần vào container r lấy binary ra thì khả năng đồng bộ sẽ cao hơn
+
 ![image](https://hackmd.io/_uploads/Hk30njNIZg.png)
+
 - Như ta thấy ở trên thì 12 bit cuối của saved rip là 1ca
 - Lúc này mik đối chiếu với stack frame server tại dòng 167 168 169 thì thấy có canary, địa chỉ stack ( byte 0x7ff ở đầu) và saved rip ( đuôi 1ca và đầu 0x7f)
 - Như v là mik đã xác định được rip và cả nơi leak stack chuẩn
@@ -107,7 +113,9 @@ int main(){
 - Tiếp theo là exploit ở lần input 2
 - Đây cũng chính là lúc lấy shell
 - Ý tưởng chính của mình là ghi đè saved rip của prinf cho nó bay vào rop chain của mình
+
 ![image](https://hackmd.io/_uploads/rkuXvaELZl.png)
+
 - Hình trên chính là hình lúc còn ở trong hàm printf. Như trên hình thì '0xdeadbeef' chính là chuỗi input mà mình đã nhập vào, và saved rip của printf nằm cách 1 tí phía trên
 - Vì stack frame binary mô phỏng của mik ko giống hoàn toàn trên server nên mik sẽ brute check vùng saved rip printf trên server nằm ở đâu
 - Đầu tiên tính địa chỉ stack nhập input bằng cách tính '(169-6)*8 = 0x518'
