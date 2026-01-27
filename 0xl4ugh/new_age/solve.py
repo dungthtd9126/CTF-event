@@ -44,6 +44,7 @@ hahah.txt
 """
 path = "flag_name_Should_Be_R@ndom_ahahahahahahahahah.txt"
 shellcode = asm(
+    # openat2 --> readv --> writev
     f"""
     mov rdi, -100
     push 0
