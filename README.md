@@ -1,4 +1,5 @@
-# 0xlaugh-ctf-write-up
+# 0xlaugh-and-vsl-ctf-write-up
+# 0xlaugh
 ## new age
 - This chall is pretty simple, the program will execute my shellcode
 <img width="708" height="323" alt="image" src="https://github.com/user-attachments/assets/f4e71097-bd50-4119-836e-30266b5fbb3e" />
@@ -56,3 +57,66 @@ struct iovec {
 <img width="850" height="635" alt="image" src="https://github.com/user-attachments/assets/ca3e48f8-ca13-4176-a9b0-25ddddb6a713" />
 - After that, The program frees the new chunk to give it back to the top chunk, this is when i get shell by one gadget
 - Note that im using free hook so it wil call shell when call free, you can use malloc hook, its the same way too
+# VSL
+## blind pwn 1
+- Bài này khá là rối đối với mình nhưng nhờ được các anh trợ giúp, mình cuối cùng cũng đã giải đc chall này
+- Hướng đi chính của mình trong challenge này là fmt str ghi đè vô saved rip để rop chain
+- Vì ngay tại thời điểm viết wu thì server đã bị đóng rồi nên mik sẽ sử dụng binary mô phỏng challenge blind này
+- Điều cần chú ý ở đây là mình có bug fmt string với lượng input lên tới 0x4ff bytes nên mình sẽ gửi 1 loạt fmtstr dạng %p để server output stack frame của chính nó
+![image](https://hackmd.io/_uploads/BJ5ejjNLWx.png)
+- Mik cũng sẽ kết hợp script python để output nhìn đẹp với dễ nhìn hơn
+- Lúc này mik sẽ đưa tạm cả stack frame vào 1 file trên vsc để tiện xem lại nhiều lần
+- Như trên hình, mình thấy rằng rip sẽ ở %169$p, rbp ở %168$p
+- Do đó, mình có thể leak đc cả stack với libc
+- Cách mình nhận dạng đc vùng này cũng khá đơn giản, mình sẽ tạo đại 1 chall mô phỏng lại server và cố gắng khiến stack frame của nó gần như giống, offset khác thì chỉnh sau cũng đc
+```c!=
+#include <stdio.h>
+#include <unistd.h>
+
+
+void init(){
+    setvbuf(stdout, NULL, _IONBF, 0);
+    setvbuf(stdin, NULL, _IONBF, 0);
+    setvbuf(stderr, NULL, _IONBF, 0);
+}
+
+int main(){
+    init();
+    char a[0x500];
+    
+    puts("Welcome to blind pwn");
+    for (int i =0; i < 2; i++){
+        printf("> ");
+        read(0, a, 0x500-1);
+        printf(a);  
+    }
+    
+
+    return 0;
+}
+```
+- Lúc này, mik sẽ gdb binary đã được khởi tạo để check 12 bit cuối của saved rip
+- Để khởi tạo binary có khả năng cao chuẩn với server thì mình sẽ tạo 1 dockerfile và lấy source đã tạo --> tạo ra binary trong container
+- Sau đó chỉ cần vào container r lấy binary ra thì khả năng đồng bộ sẽ cao hơn
+![image](https://hackmd.io/_uploads/Hk30njNIZg.png)
+- Như ta thấy ở trên thì 12 bit cuối của saved rip là 1ca
+- Lúc này mik đối chiếu với stack frame server tại dòng 167 168 169 thì thấy có canary, địa chỉ stack ( byte 0x7ff ở đầu) và saved rip ( đuôi 1ca và đầu 0x7f)
+- Như v là mik đã xác định được rip và cả nơi leak stack chuẩn
+- Mình cũng sẽ lấy stack leak đó tính ra stack addr chứa saved rip để tiện về sau
+- Và mình cũng double check rip stack addr bằng %s để xem offset mik đúng ko
+- Tiếp theo là exploit ở lần input 2
+- Đây cũng chính là lúc lấy shell
+- Ý tưởng chính của mình là ghi đè saved rip của prinf cho nó bay vào rop chain của mình
+![image](https://hackmd.io/_uploads/rkuXvaELZl.png)
+- Hình trên chính là hình lúc còn ở trong hàm printf. Như trên hình thì '0xdeadbeef' chính là chuỗi input mà mình đã nhập vào, và saved rip của printf nằm cách 1 tí phía trên
+- Vì stack frame binary mô phỏng của mik ko giống hoàn toàn trên server nên mik sẽ brute check vùng saved rip printf trên server nằm ở đâu
+- Đầu tiên tính địa chỉ stack nhập input bằng cách tính '(169-6)*8 = 0x518'
+- Lúc này, stack addr input là 'rip - 0x518'
+- Tiếp thep, brute check 'rip - 0x518 - 0x8 * n' với %s để kiếm binary 
+- Và saved rip của prinf nằm ngay phía trên vùng input
+- Sau khi đã biết hết offset thì mình sẽ nhập fmt str 6 bytes của saved rip prinf thành gadget 'add rsp, 0x50 ; pop rbx ; pop r12 ; pop rbp ; ret'
+- Lý do là vì saved rip prinf nằm ngay 'input - 0x8'
+- Thế thì chỉ cần điều khiển rsp đi xuống là có thể vào đc vùng rop chain của mik
+- Tuy nhiên để fmt str đc thì phải gửi các dạng fmt str trước rồi mới tới rop chain
+- Vì thế mik sẽ kiếm các gadget 'pop' hoặc 'add rsp' để rsp nhảy 1 đoạn xuống, bypass vùng xài fmt str và vào vùng rop chain
+- Lúc này thì chỉ cần ljust khúc gửi fmtstr thành 0x30 rồi spam gadget 'ret' đề phòng trg hợp tính lệch 1 tí thì program vẫn nhảy xuống và vô đc rop chain
