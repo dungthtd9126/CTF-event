@@ -102,6 +102,7 @@ int main(){
 - Lúc này, mik sẽ gdb binary đã được khởi tạo để check 12 bit cuối của saved rip
 - Để khởi tạo binary có khả năng cao chuẩn với server thì mình sẽ tạo 1 dockerfile và lấy source đã tạo --> tạo ra binary trong container
 - Sau đó chỉ cần vào container r lấy binary ra thì khả năng đồng bộ sẽ cao hơn
+- Tiếp theo là tìm nơi chứa saved rip và saved rbp
 
 ![image](https://hackmd.io/_uploads/Hk30njNIZg.png)
 
