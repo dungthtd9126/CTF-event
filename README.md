@@ -80,7 +80,8 @@
 
 - Then create idx 1 with size '0' because it is known as a 0x21 size chunk and storing in the tcachebin bin at that moment
 
-- So it doesnt matter if i overwrite its size when it is in freed state, the chunk will be reused whenever i malloc(size<=0x10)
+- So it doesnt matter if i overwrote its size when it is in freed state, the chunk will be reused whenever i malloc(size<=0x10)
 
+- After reused that chunk, free it to make it go to unsorted bin because its size now is 0x521 
 
 <img width="1215" height="288" alt="image" src="https://github.com/user-attachments/assets/4cb22355-92e6-49a7-bcd7-f42bdd51399d" />
