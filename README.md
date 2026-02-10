@@ -2,7 +2,7 @@
 
 ## Tcademy
 
-- My main method of solving this challenge is using tcache poisoning and heap overflow to leak libc, heap base then fsop to shell
+- My main method of solving this challenge is using tcache poisblankingoning and heap overflow to leak libc, heap base then fsop to shell
 
 ### Heap overflow
 
@@ -30,6 +30,14 @@
 
 - This program only allow me to use index 0 and 1
 
-- I'll use index 1 as a victim, the overlapped chunk, Index 0 as a expliting chunk
+- I'll use index 1 as a victim, the overlapped chunk, Index 0 as a exploit chunk
 
 <img width="679" height="754" alt="image" src="https://github.com/user-attachments/assets/a803d725-cda0-40de-a25a-d2d3ecbd33a5" />
+
+- My aim is to resize the victim chunk to 0x521  then free it to make the chunk go to unsorted bin for the libc leak
+
+- First, i need to make top chunk stay below my resized chunk. If not, the program will catch heap corruption when i malloc the overlapped chunk
+
+- To avoid that, I'll spam malloc chunk with different size then all of it. I'll call this method as padding chunks
+
+<img width="447" height="407" alt="image" src="https://github.com/user-attachments/assets/518152da-1096-480c-9edb-17bc5410d9e7" />
