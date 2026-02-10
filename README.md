@@ -85,3 +85,11 @@
 - After reused that chunk, free it to make it go to unsorted bin because its size now is 0x521 
 
 <img width="1215" height="288" alt="image" src="https://github.com/user-attachments/assets/4cb22355-92e6-49a7-bcd7-f42bdd51399d" />
+
+- Then use the same heap leak method to leak libc and get libc base
+
+### fsop
+
+- After all of processes above, I got libc base and heap leak. In other words, I had full control of libc and heap layout
+
+- 
