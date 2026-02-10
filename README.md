@@ -41,3 +41,5 @@
 - To avoid that, I'll spam malloc chunk with different size then all of it. I'll call this method as padding chunks
 
 <img width="447" height="407" alt="image" src="https://github.com/user-attachments/assets/518152da-1096-480c-9edb-17bc5410d9e7" />
+
+
