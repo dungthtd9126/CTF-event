@@ -38,8 +38,30 @@
 
 - First, i need to make top chunk stay below my resized chunk. If not, the program will catch heap corruption when i malloc the overlapped chunk
 
-- To avoid that, I'll spam malloc chunk with different size then all of it. I'll call this method as padding chunks
+- To avoid that, I'll spam malloc chunk with different size then free all of it. I'll call this method as padding chunks
 
 <img width="447" height="407" alt="image" src="https://github.com/user-attachments/assets/518152da-1096-480c-9edb-17bc5410d9e7" />
 
+- The program will then place top chunk at the bottom of my padding chunks
 
+<img width="1195" height="1053" alt="image" src="https://github.com/user-attachments/assets/b423bc67-275d-4f61-a834-c980256f0545" />
+
+##### heap leak
+
+<img width="1240" height="927" alt="image" src="https://github.com/user-attachments/assets/aeb8d85c-86c8-4970-bb88-0a0237031ee3" />
+
+- The picture above is heap layout of program after I padded chunks
+
+- You can see that my idx 0 is in the top of heap layout because i created it first, the next chunk is idx 1
+
+- Because i chose the size of both beflow 0x10 so the program allocate 0x21 size chunk as the smallest size
+
+- If i choose to create another chunk with size of 0, ill get control all of chunks below because of heap overflow
+
+- I'll first get heap leak by padding 'A' to address '0x55555555b2c0' then print note of idx 0
+
+<img width="439" height="128" alt="image" src="https://github.com/user-attachments/assets/ab81274f-20fb-42cf-a47c-e4307dd27b01" />
+
+- The program will print '0x000000055555555b', which is 'heap base >> 12'
+
+<img width="981" height="184" alt="image" src="https://github.com/user-attachments/assets/75ffa482-83d6-4af7-a7e2-da9fde63230c" />
