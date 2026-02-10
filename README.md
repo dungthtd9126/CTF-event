@@ -65,3 +65,22 @@
 - The program will print '0x000000055555555b', which is 'heap base >> 12'
 
 <img width="981" height="184" alt="image" src="https://github.com/user-attachments/assets/75ffa482-83d6-4af7-a7e2-da9fde63230c" />
+
+- At this stage, I got heap base leak
+
+<img width="961" height="286" alt="image" src="https://github.com/user-attachments/assets/331454b3-6816-4d02-ac41-ec9afbed5332" />
+
+- Go back to the main flow, I'll use that same method to resize the next chunk.
+
+- From the picture above, we can easily see that method can resize my victim chunk too
+
+- The next step is deleting idx 0 and malloc it with size 0 again to change the size
+
+<img width="952" height="332" alt="image" src="https://github.com/user-attachments/assets/ae05a2ef-572e-4e61-b3b0-0ad8af8ad1f9" />
+
+- Then create idx 1 with size '0' because it is known as a 0x21 size chunk and storing in the tcachebin bin at that moment
+
+- So it doesnt matter if i overwrite its size when it is in freed state, the chunk will be reused whenever i malloc(size<=0x10)
+
+
+<img width="1215" height="288" alt="image" src="https://github.com/user-attachments/assets/4cb22355-92e6-49a7-bcd7-f42bdd51399d" />
