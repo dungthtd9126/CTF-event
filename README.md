@@ -112,6 +112,16 @@
 
 <img width="1560" height="657" alt="image" src="https://github.com/user-attachments/assets/6764cd9b-9f9e-4925-b713-84473a38f59d" />
 
-- file.vtable in this case is stderr.vtable, I'll overwrite it to make it call _IO_wfile_overflow --> calling do_allocbuf if the condition is met --> calling 'wide_data-->vtable' with no vtable check
+- file.vtable in this case is stderr.vtable, I'll overwrite it to make it call _IO_wfile_overflow --> calling do_allocbuf --> calling 'wide_data-->vtable' with no vtable check
 
-- So the whole point is overwrite 
+- I'll overwrite stderr struct in the following steps:
+
+    - Flags: 0x3b01010101010101
+    - _IO_read_ptr: 'sh''
+    - write_ptr: anyvalue
+    - write_base: 0
+    - lock: any address that has 8 byte null
+    - mode: 0
+    - vtable: _IO_wfile_overflow
+
+ - After that, i just need to 
