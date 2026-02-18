@@ -92,4 +92,19 @@
 
 - After all of processes above, I got libc base and heap leak. In other words, I had full control of libc and heap layout
 
-- 
+- Because this chall has heap overflow, I can tcache poison to overwrite stderr structre as my target
+
+- The reason is when the program exit, it will call IO_flush_all
+
+<img width="987" height="662" alt="image" src="https://github.com/user-attachments/assets/336f951e-bb73-4b27-9b81-646ce16e8e85" />
+
+- This func will check each file structure in _IO_list_all array
+
+<img width="1402" height="340" alt="image" src="https://github.com/user-attachments/assets/28e96164-9614-4f35-a3d4-66533a5c33d5" />
+
+- It uses chain as the next file structure to check
+
+- My target is triggering the if statement: calling _IO_OVERFLOW by set 'mode = 0 and write_ptr > write_base'
+
+    - _IO_OVERFLOW is a macro, calling the vtable of that current IO file
+
