@@ -124,4 +124,7 @@
     - mode: 0
     - vtable: _IO_wfile_overflow
 
- - After that, i just need to 
+ - After that, i just need to call exit and the program will activate my exploit --> get shell
+
+<img width="836" height="394" alt="image" src="https://github.com/user-attachments/assets/0abbb81b-8606-42c9-a832-d9f2089ed42e" />
+
