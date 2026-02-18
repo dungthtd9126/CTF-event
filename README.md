@@ -123,8 +123,17 @@
     - lock: any address that has 8 byte null
     - mode: 0
     - vtable: _IO_wfile_overflow
+ 
+- The reason I set flags and _IO_read_ptr with the value above is rdi stores 'stderr-->flag ptr' at the moment the program call wdata-->vtable
 
- - After that, i just need to call exit and the program will activate my exploit --> get shell
+- So basically it call system('sh' + 0x3b01010101010101) at that time as my fake vtable will be system addr and I overwrote 8 bytes of flags with 0x01 so it will read string until 'sh'
+
+- Also, '0x3b' is a byte a value of ';' word. This means sh;1111111.
+
+- In shell case, it acts as multiple commands at once, these commands are separated by ';'
+
+- So first it call 'sh' --> get shell --> then call '1111111' : invalid command like the picture below
 
 <img width="836" height="394" alt="image" src="https://github.com/user-attachments/assets/0abbb81b-8606-42c9-a832-d9f2089ed42e" />
 
+- So the final step is to trigger exit with option 4 and we get shell
