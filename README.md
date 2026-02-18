@@ -108,3 +108,8 @@
 
     - _IO_OVERFLOW is a macro, calling the vtable of that current IO file
 
+- The next step is using the method showed in the picture below to bypass vtable check
+
+<img width="1560" height="657" alt="image" src="https://github.com/user-attachments/assets/6764cd9b-9f9e-4925-b713-84473a38f59d" />
+
+-
