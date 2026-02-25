@@ -25,3 +25,21 @@
 - Then overwrite saved rip of maint to line 25 of FLAG function to print out flag
 
 <img width="1078" height="517" alt="image" src="https://github.com/user-attachments/assets/513c7520-4e9b-48ad-bff3-afa7c61eec02" />
+
+## vault
+
+- This is a rop chain challenge
+
+- The only special thing in this challenge is it uses static linking, resulting in lots of valuable ropgadget
+
+- More of that, this chall has PIE off and serious bof in feedback function
+
+<img width="1547" height="713" alt="image" src="https://github.com/user-attachments/assets/555d4653-cabb-4d77-ab40-fe731ab37869" />
+
+- So i just need to use rop chain to get shell
+
+- Because it has some static linked libc function, there are more than enough ropgadget to do ropchain --> get shell
+
+- When i first decompile it, it may look very strange and hard to read
+
+- So i should read the code and run it in terminal at the same time to know what a functon will do
