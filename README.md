@@ -15,3 +15,6 @@
 <img width="1243" height="682" alt="image" src="https://github.com/user-attachments/assets/4db654db-79e4-4044-bea8-dc4af719ee57" />
 
 - I can choose what ever num i want. So i just input num = 0 then it will auto true and print the flag in option 10
+
+## Heap
+- The challenge's heap layout is different from the past and i can't run patched challenge so may be i can't solve it now
