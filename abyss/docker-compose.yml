@@ -1,0 +1,19 @@
+services:
+  abyss:
+    build: .
+    image: abyss-local:latest
+    container_name: abyss_local
+    ports:
+      - "1333:1333"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:unconfined
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,noexec,nosuid,nodev
+    ulimits:
+      nproc: { soft: 200, hard: 200 }
+      nofile: { soft: 1024, hard: 1024 }
+      core: 0
