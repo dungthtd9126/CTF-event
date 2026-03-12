@@ -8,6 +8,6 @@
 
 - It is pretty hard to see that bug in this challenge
 
-- The bug is in this line: <b> if ( (__int16)raw > 3 ) <\b>
+- The bug is in this line: <b> if ( (__int16)raw > 3 ) </b>
 
 - 
