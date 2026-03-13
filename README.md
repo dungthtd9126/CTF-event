@@ -67,3 +67,7 @@
 - With that trick, the last block is bypassable now. Enjoy the flag!
 
 <img width="1270" height="952" alt="image" src="https://github.com/user-attachments/assets/dd325d1c-beda-4c2e-ad00-b519e83d180a" />
+
+## house_of_wade
+
+- This is a basic heap challenge, 
