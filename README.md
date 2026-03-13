@@ -70,4 +70,9 @@
 
 ## house_of_wade
 
-- This is a basic heap challenge, 
+- This is a basic heap challenge, it has uaf, leading to tcache poison
+
+- This challenge has option 5, printing the flag of the challenge. But it will check the condition of 'chimichanga_count' and its value
+
+<img width="1257" height="454" alt="image" src="https://github.com/user-attachments/assets/bf8dc8c1-1c06-495c-a185-e069d8d27377" />
+
