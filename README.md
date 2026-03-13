@@ -76,3 +76,16 @@
 
 <img width="1257" height="454" alt="image" src="https://github.com/user-attachments/assets/bf8dc8c1-1c06-495c-a185-e069d8d27377" />
 
+- The value of 'chimichanga_count' is a pointer of heap to null as default. My target is tcache poison to get control of that chimichanga_count variable
+
+- Because the program doesn't delete pointer when free, we have uaf and tcache poison too
+
+<img width="1212" height="556" alt="image" src="https://github.com/user-attachments/assets/69fb3d2a-8f4a-48d1-980c-8e5b4c654e1c" />
+
+- Note that it uses libc 2.35 so i have to leak heap first.
+
+- To leak heap base, i just need to create one chunk then free it, it will store 'heap_addr >> 12' like what we can see in the image below
+
+<img width="1181" height="656" alt="image" src="https://github.com/user-attachments/assets/ca272398-c92c-48a7-baca-1168a7564053" />
+
+- Look carefully, you can see that the only free chunk store '0x227c1', if I use <b> '0x227c1 << 12' </b>
