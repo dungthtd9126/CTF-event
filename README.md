@@ -88,4 +88,8 @@
 
 <img width="1181" height="656" alt="image" src="https://github.com/user-attachments/assets/ca272398-c92c-48a7-baca-1168a7564053" />
 
-- Look carefully, you can see that the only free chunk store '0x227c1', if I use <b> '0x227c1 << 12' </b>
+- Look carefully, you can see that the only free chunk store '0x227c1', if I use <b> '0x227c1 << 12' </b>. I'll succesfully get heap base as 3 last digits of it always be 0
+
+- After getting heap base and PIE off, i can easily tcache poison and get control to chimichanga_count, changing its pointer to another pointer that i currently control. Then write 0xcafebabe to it
+
+# The last challenge is pretty hard for me so I can't solve it at the moment
