@@ -1,0 +1,12 @@
+# Arrow key movement
+left=a
+right=d
+up=w
+down=s
+quit=q
+clear=c
+edit=e
+delete=d
+modify=m
+save=s
+width=w
