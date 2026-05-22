@@ -104,7 +104,10 @@
 
 - It uses chain as the next file structure to check
 
-- My target is triggering the if statement: calling _IO_OVERFLOW by set 'mode = 0 and write_ptr > write_base'
+- My target is triggering the if statement: calling _IO_OVERFLOW by set:
+  ```
+  mode = 0 and write_ptr > write_base
+  ```
 
     - _IO_OVERFLOW is a macro, calling the vtable of that current IO file
 
