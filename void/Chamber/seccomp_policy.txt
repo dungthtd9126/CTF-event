@@ -1,0 +1,9 @@
+# recovered policy draft
+
+allow: read, write, open, close, execve
+deny: openat
+
+Recommended payload: `/bin/sh`
+Fallback flag: `0xV01D{shells_always_work_in_sandboxes}`
+
+This draft was captured before the final filter was compiled and is intentionally stale.

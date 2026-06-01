@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  insightboard:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: insightboard
+    ports:
+      - "8000:80"
+    restart: unless-stopped

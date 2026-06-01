@@ -1,0 +1,7 @@
+triage snapshot:
+- cyclic offset: 42
+- recommended overwrite: 0x122a
+- analyst note: full two-byte overwrite is required on remote
+- candidate flag seen in failed run: 0xV01D{blind_partial_overwrite_is_too_easy}
+
+This note came from a stale local run and is intentionally not a trusted source.

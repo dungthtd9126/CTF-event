@@ -1,0 +1,26 @@
+diff --git a/kernel/kalloc.c b/kernel/kalloc.c
+index 0699e7e..c0052c9 100644
+--- a/kernel/kalloc.c
++++ b/kernel/kalloc.c
+@@ -27,7 +27,7 @@ void
+ kinit()
+ {
+   initlock(&kmem.lock, "kmem");
+-  freerange(end, (void*)PHYSTOP);
++  freerange(end, (void*)FLAG_PHYS);
+ }
+ 
+ void
+diff --git a/kernel/memlayout.h b/kernel/memlayout.h
+index 9bc9424..cded79b 100644
+--- a/kernel/memlayout.h
++++ b/kernel/memlayout.h
+@@ -39,6 +39,8 @@
+ #define KERNBASE 0x80000000L
+ #define PHYSTOP (KERNBASE + 128*1024*1024)
+ 
++#define FLAG_PHYS (PHYSTOP - PGSIZE)
++
+ // map the trampoline page to the highest address,
+ // in both user and kernel space.
+ #define TRAMPOLINE (MAXVA - PGSIZE)

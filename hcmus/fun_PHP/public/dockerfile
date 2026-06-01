@@ -1,0 +1,37 @@
+FROM php:8.4-apache
+
+RUN a2enmod rewrite
+
+COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
+COPY public/ /var/www/html/
+COPY app/ /var/www/app/
+COPY config/ /var/www/config/
+COPY secrets/ /var/www/secrets/
+
+RUN mkdir -p /var/www/storage/cache \
+    /var/www/storage/reports \
+    /var/www/storage/snapshots \
+    && printf 'Monthly overview export is ready for analytics review.\n' > /var/www/storage/reports/monthly-overview.txt \
+    && chmod 0444 /var/www/secrets/admin_ticket.txt \
+    && chown -R www-data:www-data /var/www/storage
+
+RUN printf 'flag{fake-flag}\n' > /flag.txt \
+    && printf '%s\n' \
+        '#include <stdio.h>' \
+        'int main(void) {' \
+        '    FILE *f = fopen("/flag.txt", "r");' \
+        '    char buf[256];' \
+        '    if (f == NULL) { return 1; }' \
+        '    if (fgets(buf, sizeof(buf), f) != NULL) { fputs(buf, stdout); }' \
+        '    fclose(f);' \
+        '    return 0;' \
+        '}' > /tmp/readflag.c \
+    && cc /tmp/readflag.c -o /readflag \
+    && chown root:root /flag.txt /readflag \
+    && chmod 0400 /flag.txt \
+    && chmod 4555 /readflag \
+    && rm /tmp/readflag.c
+
+COPY docker/php.ini /usr/local/etc/php/php.ini
+
+WORKDIR /var/www

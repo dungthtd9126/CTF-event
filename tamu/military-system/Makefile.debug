@@ -1,0 +1,17 @@
+NAME := military-system
+
+DOCKER_CONTEXT := default
+DOCKER_GLOBAL := --context $(DOCKER_CONTEXT)
+GDB_PORT := 1234
+VULN_PORT := 9001
+REPO_ROOT := $(abspath ../..)
+
+CPORTS := 9001
+HPORTS := $(CPORTS)
+DOCKER_RUNTIME := --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges --restart=always
+
+build: Dockerfile
+	docker $(DOCKER_GLOBAL) build -f Dockerfile -t $(NAME) $(REPO_ROOT) --build-arg FLAG_FILE=fake-flag.txt
+
+run:
+	docker $(DOCKER_GLOBAL) run --rm -it -e DEBUG=1 -p $(GDB_PORT):$(GDB_PORT) -p $(VULN_PORT):$(VULN_PORT) --name $(NAME) $(NAME)

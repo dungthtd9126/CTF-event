@@ -1,0 +1,5 @@
+ticket=2026ctfhcmus
+base_count=2
+candidates=31
+docker_exact_matches=0
+unlocked=False

@@ -1,0 +1,18 @@
+services:
+  challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      GZCTF_FLAG: ${GZCTF_FLAG:-flag{local_docker_lab}}
+      GZCTF_CHALLENGE_ID: ${GZCTF_CHALLENGE_ID:-37}
+      GZCTF_TEAM_ID: ${GZCTF_TEAM_ID:-251}
+      GZCTF_GAME_ID: ${GZCTF_GAME_ID:-1}
+    healthcheck:
+      test: ["CMD-SHELL", "timeout 1 bash -lc 'exec 3<>/dev/tcp/127.0.0.1/5000'"]
+      interval: 10s
+      timeout: 2s
+      retries: 5
+      start_period: 2s
+    ports:
+      - "127.0.0.1:${CHALL_PORT:-5000}:5000"

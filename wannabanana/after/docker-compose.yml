@@ -1,0 +1,10 @@
+services:
+  afterimage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: afterimage
+    ports:
+      - "10039:10039"
+    restart: unless-stopped
+

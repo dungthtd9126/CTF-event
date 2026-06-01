@@ -1,0 +1,18 @@
+FROM ubuntu:24.04@sha256:72297848456d5d37d1262630108ab308d3e9ec7ed1c3286a32fe09856619a782
+
+RUN useradd --create-home --shell /bin/bash ctf
+
+WORKDIR /home/ctf/
+
+COPY ./deploy/prob ./prob
+COPY ./deploy/flag ./flag
+
+RUN chown -R ctf:ctf /home/ctf
+RUN chmod -R 750 /home/ctf
+RUN chown root:root /home/ctf/flag
+RUN chown root:root /home/ctf/prob
+RUN chmod 4755 /home/ctf/prob
+RUN chmod 400 /home/ctf/flag
+
+USER ctf
+CMD ["/bin/bash"]

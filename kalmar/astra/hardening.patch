@@ -1,0 +1,54 @@
+diff --git a/kernel-src/arch/x86-64/cpu.c b/kernel-src/arch/x86-64/cpu.c
+index 2a5fe25..684b2b7 100644
+--- a/kernel-src/arch/x86-64/cpu.c
++++ b/kernel-src/arch/x86-64/cpu.c
+@@ -196,7 +196,7 @@ void arch_cpu_init() {
+ 	wrmsr(MSR_STAR, star);
+ 	wrmsr(MSR_LSTAR, (uint64_t)arch_syscall_entry);
+ 	wrmsr(MSR_CSTAR, 0); // no compatibility mode syscall handler
+-	wrmsr(MSR_FMASK, 0x200); // disable interrupts on syscall
++	wrmsr(MSR_FMASK, 0x600); // disable interrupts and DF on syscall
+ 
+ 	// enable SSE
+ 	asm volatile(
+@@ -205,7 +205,7 @@ void arch_cpu_init() {
+ 		"or  $2, %%eax;"
+ 		"mov %%rax, %%cr0;"
+ 		"mov %%cr4, %%rax;"
+-		"or  $0b11000000000, %%rax;"
++		"or  $0x100600, %%rax;"
+ 		"mov %%rax, %%cr4;"
+ 		: : : "rax");
+ 
+diff --git a/kernel-src/sys/syscalls/pread.c b/kernel-src/sys/syscalls/pread.c
+index 09964e8..3edfb6e 100644
+--- a/kernel-src/sys/syscalls/pread.c
++++ b/kernel-src/sys/syscalls/pread.c
+@@ -10,6 +10,11 @@ syscallret_t syscall_pread(context_t *context, int fd, void *buffer, size_t size
+ 		.ret = -1
+ 	};
+ 
++	if (IS_USER_ADDRESS(buffer) == false) {
++		ret.errno = EFAULT;
++		return ret;
++	}
++
+ 	file_t *file = fd_get(fd);
+ 
+ 	if (file == NULL || (file->flags & FILE_READ) == 0) {
+diff --git a/kernel-src/sys/syscalls/pwrite.c b/kernel-src/sys/syscalls/pwrite.c
+index 6604ef3..be45fd6 100644
+--- a/kernel-src/sys/syscalls/pwrite.c
++++ b/kernel-src/sys/syscalls/pwrite.c
+@@ -8,6 +8,11 @@ syscallret_t syscall_pwrite(context_t *context, int fd, void *buffer, size_t siz
+ 		.ret = -1
+ 	};
+ 
++	if (IS_USER_ADDRESS(buffer) == false) {
++		ret.errno = EFAULT;
++		return ret;
++	}
++
+ 	file_t *file = fd_get(fd);
+ 
+ 	if (file == NULL || (file->flags & FILE_WRITE) == 0) {

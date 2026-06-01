@@ -1,0 +1,19 @@
+services:
+  xv6:
+    build:
+      context: .
+      dockerfile: Dockerfile.serve
+    restart: unless-stopped
+    init: true
+
+    read_only: true
+    tmpfs:
+      - /tmp:size=1g,mode=1777,exec
+
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    ports:
+      - "1337:1337"

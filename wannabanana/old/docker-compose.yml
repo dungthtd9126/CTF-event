@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  old_days:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./deploy:/challenge/deploy
+      - ./Dockerfile.inner:/Dockerfile.inner
+    environment:
+      # comma-separated: name|url|admin_api_key
+      - CTFD_INSTANCES=advanced|https://adv.hacktheon.org|adv_admin_token,b1|https://b1.hacktheon.org|b1_admin_token,b2|https://b2.hacktheon.org|b2_admin_token

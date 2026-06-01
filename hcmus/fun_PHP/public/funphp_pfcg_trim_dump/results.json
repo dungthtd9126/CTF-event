@@ -1,0 +1,627 @@
+{
+  "ticket": "2026ctfhcmus",
+  "base_count": 2,
+  "candidates": 31,
+  "trials": [
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.CSISO2022KR.UTF8",
+      "chain_len": 2614,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.ISO-2022-KR.UTF8",
+      "chain_len": 2614,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UTF7",
+      "chain_len": 2607,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UTF16LE",
+      "chain_len": 2610,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UTF16BE",
+      "chain_len": 2610,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UCS2",
+      "chain_len": 2607,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UCS-2",
+      "chain_len": 2608,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UCS4",
+      "chain_len": 2607,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.ASCII",
+      "chain_len": 2608,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.ISO-8859-1",
+      "chain_len": 2613,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.LATIN1",
+      "chain_len": 2609,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.CSISO2022KR.UCS2",
+      "chain_len": 2614,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.ISO-2022-KR.UCS2",
+      "chain_len": 2614,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.CSISO2022KR.UTF16LE",
+      "chain_len": 2617,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.ISO-2022-KR.UTF16LE",
+      "chain_len": 2617,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UTF7|convert.iconv.UTF7.UTF8",
+      "chain_len": 2631,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2637,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UTF16BE|convert.iconv.UTF16BE.UTF8",
+      "chain_len": 2637,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2631,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UCS-2|convert.iconv.UCS-2.UTF8",
+      "chain_len": 2633,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UCS4|convert.iconv.UCS4.UTF8",
+      "chain_len": 2631,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.CSISO2022KR.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2638,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.ISO-2022-KR.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2638,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.CSISO2022KR.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2644,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.ISO-2022-KR.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2644,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.CSISO2022KR.UTF8|convert.iconv.UTF8.UTF8",
+      "chain_len": 2638,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.ISO-2022-KR.UTF8|convert.iconv.UTF8.UTF8",
+      "chain_len": 2638,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.CSISO2022KR.UCS2|convert.iconv.UCS2.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2668,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.ISO-2022-KR.UCS2|convert.iconv.UCS2.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2668,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UTF16LE|convert.iconv.UTF16LE.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2661,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "chain",
+      "extra": "convert.iconv.UTF8.UTF16BE|convert.iconv.UTF16BE.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2661,
+      "docker_eval_error": null,
+      "docker_output_len": 0,
+      "docker_output_preview": "",
+      "docker_output_hex": "",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.CSISO2022KR.UTF8",
+      "chain_len": 2593,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.ISO-2022-KR.UTF8",
+      "chain_len": 2593,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UTF7",
+      "chain_len": 2586,
+      "docker_eval_error": null,
+      "docker_output_len": 175,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+--AD0APQ+--AD0APQ+--AD0APQ+--AD0APQ+--AD0APQ+--AD0APQ+--AD0APQ+--AD0APQ+--AD0APQ+--AD0APQ+--AD0AP",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d2d4144304150512b2d4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UTF16LE",
+      "chain_len": 2589,
+      "docker_eval_error": null,
+      "docker_output_len": 316,
+      "docker_output_preview": "M\u0000j\u0000A\u0000y\u0000N\u0000m\u0000N\u00000\u0000Z\u0000m\u0000h\u0000j\u0000b\u0000X\u0000V\u0000z\u0000G\u0000y\u0000Q\u0000p\u0000Q\u0000w\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000",
+      "docker_output_hex": "4d006a00410079004e006d004e0030005a006d0068006a006200580056007a004700790051007000510077002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b004100440030004100500051002d00",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UTF16BE",
+      "chain_len": 2589,
+      "docker_eval_error": null,
+      "docker_output_len": 316,
+      "docker_output_preview": "\u0000M\u0000j\u0000A\u0000y\u0000N\u0000m\u0000N\u00000\u0000Z\u0000m\u0000h\u0000j\u0000b\u0000X\u0000V\u0000z\u0000G\u0000y\u0000Q\u0000p\u0000Q\u0000w\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A",
+      "docker_output_hex": "004d006a00410079004e006d004e0030005a006d0068006a006200580056007a004700790051007000510077002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b004100440030004100500051002d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UCS2",
+      "chain_len": 2586,
+      "docker_eval_error": null,
+      "docker_output_len": 316,
+      "docker_output_preview": "M\u0000j\u0000A\u0000y\u0000N\u0000m\u0000N\u00000\u0000Z\u0000m\u0000h\u0000j\u0000b\u0000X\u0000V\u0000z\u0000G\u0000y\u0000Q\u0000p\u0000Q\u0000w\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000",
+      "docker_output_hex": "4d006a00410079004e006d004e0030005a006d0068006a006200580056007a004700790051007000510077002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b004100440030004100500051002d00",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UCS-2",
+      "chain_len": 2587,
+      "docker_eval_error": null,
+      "docker_output_len": 316,
+      "docker_output_preview": "M\u0000j\u0000A\u0000y\u0000N\u0000m\u0000N\u00000\u0000Z\u0000m\u0000h\u0000j\u0000b\u0000X\u0000V\u0000z\u0000G\u0000y\u0000Q\u0000p\u0000Q\u0000w\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000",
+      "docker_output_hex": "4d006a00410079004e006d004e0030005a006d0068006a006200580056007a004700790051007000510077002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b004100440030004100500051002d00",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UCS4",
+      "chain_len": 2586,
+      "docker_eval_error": null,
+      "docker_output_len": 632,
+      "docker_output_preview": "\u0000\u0000\u0000M\u0000\u0000\u0000j\u0000\u0000\u0000A\u0000\u0000\u0000y\u0000\u0000\u0000N\u0000\u0000\u0000m\u0000\u0000\u0000N\u0000\u0000\u00000\u0000\u0000\u0000Z\u0000\u0000\u0000m\u0000\u0000\u0000h\u0000\u0000\u0000j\u0000\u0000\u0000b\u0000\u0000\u0000X\u0000\u0000\u0000V\u0000\u0000\u0000z\u0000\u0000\u0000G\u0000\u0000\u0000y\u0000\u0000\u0000Q\u0000\u0000\u0000p\u0000\u0000\u0000Q\u0000\u0000\u0000w\u0000\u0000\u0000+\u0000\u0000\u0000-\u0000\u0000\u0000A\u0000\u0000\u0000D\u0000\u0000\u00000\u0000\u0000\u0000A\u0000\u0000\u0000P\u0000\u0000\u0000Q",
+      "docker_output_hex": "0000004d0000006a00000041000000790000004e0000006d0000004e000000300000005a0000006d000000680000006a0000006200000058000000560000007a0000004700000079000000510000007000000051000000770000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000002d0000004100000044000000300000004100000050000000510000002b0000004100000044000000300000004100000050000000510000002d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.ASCII",
+      "chain_len": 2587,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.ISO-8859-1",
+      "chain_len": 2592,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.LATIN1",
+      "chain_len": 2588,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.CSISO2022KR.UCS2",
+      "chain_len": 2593,
+      "docker_eval_error": null,
+      "docker_output_len": 316,
+      "docker_output_preview": "M\u0000j\u0000A\u0000y\u0000N\u0000m\u0000N\u00000\u0000Z\u0000m\u0000h\u0000j\u0000b\u0000X\u0000V\u0000z\u0000G\u0000y\u0000Q\u0000p\u0000Q\u0000w\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000",
+      "docker_output_hex": "4d006a00410079004e006d004e0030005a006d0068006a006200580056007a004700790051007000510077002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b004100440030004100500051002d00",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.ISO-2022-KR.UCS2",
+      "chain_len": 2593,
+      "docker_eval_error": null,
+      "docker_output_len": 316,
+      "docker_output_preview": "M\u0000j\u0000A\u0000y\u0000N\u0000m\u0000N\u00000\u0000Z\u0000m\u0000h\u0000j\u0000b\u0000X\u0000V\u0000z\u0000G\u0000y\u0000Q\u0000p\u0000Q\u0000w\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000",
+      "docker_output_hex": "4d006a00410079004e006d004e0030005a006d0068006a006200580056007a004700790051007000510077002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b004100440030004100500051002d00",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.CSISO2022KR.UTF16LE",
+      "chain_len": 2596,
+      "docker_eval_error": null,
+      "docker_output_len": 316,
+      "docker_output_preview": "M\u0000j\u0000A\u0000y\u0000N\u0000m\u0000N\u00000\u0000Z\u0000m\u0000h\u0000j\u0000b\u0000X\u0000V\u0000z\u0000G\u0000y\u0000Q\u0000p\u0000Q\u0000w\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000",
+      "docker_output_hex": "4d006a00410079004e006d004e0030005a006d0068006a006200580056007a004700790051007000510077002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b004100440030004100500051002d00",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.ISO-2022-KR.UTF16LE",
+      "chain_len": 2596,
+      "docker_eval_error": null,
+      "docker_output_len": 316,
+      "docker_output_preview": "M\u0000j\u0000A\u0000y\u0000N\u0000m\u0000N\u00000\u0000Z\u0000m\u0000h\u0000j\u0000b\u0000X\u0000V\u0000z\u0000G\u0000y\u0000Q\u0000p\u0000Q\u0000w\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000P\u0000Q\u0000+\u0000-\u0000A\u0000D\u00000\u0000A\u0000",
+      "docker_output_hex": "4d006a00410079004e006d004e0030005a006d0068006a006200580056007a004700790051007000510077002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b002d004100440030004100500051002b004100440030004100500051002d00",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UTF7|convert.iconv.UTF7.UTF8",
+      "chain_len": 2610,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2616,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UTF16BE|convert.iconv.UTF16BE.UTF8",
+      "chain_len": 2616,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2610,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UCS-2|convert.iconv.UCS-2.UTF8",
+      "chain_len": 2612,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UCS4|convert.iconv.UCS4.UTF8",
+      "chain_len": 2610,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.CSISO2022KR.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2617,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.ISO-2022-KR.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2617,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.CSISO2022KR.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2623,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.ISO-2022-KR.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2623,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.CSISO2022KR.UTF8|convert.iconv.UTF8.UTF8",
+      "chain_len": 2617,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.ISO-2022-KR.UTF8|convert.iconv.UTF8.UTF8",
+      "chain_len": 2617,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.CSISO2022KR.UCS2|convert.iconv.UCS2.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2647,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.ISO-2022-KR.UCS2|convert.iconv.UCS2.UTF16LE|convert.iconv.UTF16LE.UTF8",
+      "chain_len": 2647,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UTF16LE|convert.iconv.UTF16LE.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2640,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    },
+    {
+      "mode": "rawbase64",
+      "extra": "convert.iconv.UTF8.UTF16BE|convert.iconv.UTF16BE.UCS2|convert.iconv.UCS2.UTF8",
+      "chain_len": 2640,
+      "docker_eval_error": null,
+      "docker_output_len": 158,
+      "docker_output_preview": "MjAyNmN0ZmhjbXVzGyQpQw+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-AD0APQ+-",
+      "docker_output_hex": "4d6a41794e6d4e305a6d686a6258567a4779517051772b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b2d4144304150512b4144304150512d",
+      "docker_match_ticket": false
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+services:
+  pyjail:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 2020:2020

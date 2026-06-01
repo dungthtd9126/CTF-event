@@ -1,0 +1,1 @@
+python3 xv6_revenge_solve.py ../public --host xv6.blackpinker.com --port 6666

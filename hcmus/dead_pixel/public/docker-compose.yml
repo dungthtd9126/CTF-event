@@ -1,0 +1,11 @@
+services:
+  dead_pixel:
+    build: .
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 64MB
+    ports:
+      - "5000:5000"

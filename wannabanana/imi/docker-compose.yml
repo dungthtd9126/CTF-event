@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  immutable:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 33201:33201
