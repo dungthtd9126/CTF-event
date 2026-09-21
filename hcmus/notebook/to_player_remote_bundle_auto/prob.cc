@@ -70,7 +70,7 @@ private:
         uint64_t newsz   = SIZE(cur);
         uint64_t pred_sz = SIZE(cur);
 
-        while (!is_base(lo) && !prev_inuse(lo))
+        while (!is_base(lo) && !prev_inuse(lo)) // check bk chunk
         {
             if (debugmode)
                 printf("consolidate: 0x%llx\n", (unsigned long long)prev_blk(lo));
@@ -78,7 +78,7 @@ private:
             lo = prev_blk(lo);
             newsz += SIZE(lo);
         }
-        while (!is_top(next_blk(hi)) && !next_inuse(hi))
+        while (!is_top(next_blk(hi)) && !next_inuse(hi)) // check fd chunk
         {
             if (debugmode)
                 printf("consolidate: 0x%llx\n", (unsigned long long)next_blk(hi));
@@ -93,11 +93,11 @@ private:
             top = lo;
             return nullptr;
         }
-
-        lo->curr_size            = newsz;
-        next_blk(lo)->priv_size  = pred_sz;
-        on_prev(lo);
-        off_prev(next_blk(lo));
+        // bug: next_blk calculate on curr_size to get the next chunk and set prev off
+        lo->curr_size            = newsz; // set new size of conlidated chunk
+        next_blk(lo)->priv_size  = pred_sz; // bug in here, not update pred_sz
+        on_prev(lo); // on prev for bk chunk
+        off_prev(next_blk(lo)); // off prev for fd chunk
         return lo;
     }
 
@@ -125,7 +125,7 @@ private:
         }
         else
         {
-            off_prev(next_blk(b));
+            off_prev(next_blk(b)); // make the prev bit off --> 0
             bins[idx_of(SIZE(b))].insert(b);
         }
     }
@@ -210,7 +210,7 @@ public:
 
     char *alloc(uint64_t sz)
     {
-        uint64_t alsz = aln(sz);
+        uint64_t alsz = aln(sz); // aligned size
         if (alsz == 0)
             return nullptr;
         Block *chosen = nullptr;

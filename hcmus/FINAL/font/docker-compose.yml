@@ -1,0 +1,11 @@
+services:
+  font:
+    build: .
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 64MB
+    ports:
+      - "1338:1338"

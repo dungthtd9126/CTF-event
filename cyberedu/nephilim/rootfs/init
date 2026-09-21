@@ -1,0 +1,21 @@
+#!/bin/sh
+mount -t proc  none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs none /dev 2>/dev/null || true
+
+echo 2 > /proc/sys/kernel/kptr_restrict
+echo 1 > /proc/sys/kernel/dmesg_restrict
+
+insmod /lib/modules/nkrcu.ko
+insmod /lib/modules/nkmon.ko
+
+ifconfig eth0 10.0.2.15 netmask 255.255.255.0 up 2>/dev/null || true
+route add default gw 10.0.2.2 2>/dev/null || true
+
+insmod /lib/modules/nknet.ko
+
+chown 0:0 /flag
+chmod 400 /flag
+
+su -c '/bin/sh' nobody 2>/dev/null || true
+while true; do sleep 3600; done
