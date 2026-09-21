@@ -22,12 +22,12 @@ Then it allows us to `flip` only 1 bit at `arbitrary address`
 ## Exploit explanation
 If I run the process with normal `ASLR on` and malloc with `0x100m size`, it will exceed the free size of heap and malloc a `annon chunk` instead of `normal heap chunk`
 
-![alt text](image.png)
+![alt text](./assets/image.png)
 
 > The libc is consecutively right below the `allocated annon`, which enables us to leak libc
 ### Flip 1 bit
 Our next target is flip bit to where helps us exploit, it will be `IO_list_all's value`
-![alt text](image-1.png)
+![alt text](./assets/image-1.png)
 
 The target is flip the `fifth` byte of `stderr address` into the `allocated chunk`. 
 
@@ -88,7 +88,7 @@ load += shellcode
 ```
 So after I successfully `flip` back to `fsop area`, my `arbitrary execution` will be  `__rpc_thread_key_cleanup + 46`
 
-![alt text](image-2.png)
+![alt text](./assets/image-2.png)
  
 The reason is my `rdx` when executing `arb execution` contains 4 lower byte of the fake flag. 
 
