@@ -1,5 +1,5 @@
 # Bitdebit
-First, thanks to `hiuhiu` and `kur0x1412`, who helped me solve this challenge 
+First, thanks to `hiuhiu` and `kur0x1412`, who helped me solve this challenge on local
 
 ## Static analysis
 The challenge allows user to malloc `arbitrary size` and do `arbitrary read` inside that `allocated chunk`
@@ -176,7 +176,7 @@ extra_delay:
     dec  rcx
     jnz  extra_delay
 ```
-Then my `script` will base on that `the live time of the process` to realize if the bit is true then update the flag bit at that byte index. I'll use `thread pool` to speed up the process because I have to guess bit `0-7` at each byte offset.
+Then my `script` will rely on `the live time of the process` to know if the bit is true and update the flag bit at that exact byte index. I'll use `thread pool` to speed up the process because I have to guess bit `0-7` at each byte offset.
 
 ```python
 with ThreadPoolExecutor(
@@ -199,9 +199,9 @@ with ThreadPoolExecutor(
             bit_value = 1 << bit_index
             recovered_flag[byte_index] |= bit_value
 ```
-But I'll need the medium time of flag guessing to have a base valid live time for a case that has correct bit. So I have to initialize 2 `variables`: 
-- FAILURE_TIME
-- VALID_TIME
+But I'll need the medium time of a live process in order to get a medium valid live time of a process, which has correct bit. So I have to initialize 2 `variables`: 
+- FAILURE_TIME (If < that, False bit)
+- VALID_TIME (If > that, True bit)
 
 ```py
 def get_time(n=2):
@@ -238,7 +238,7 @@ def initialize_timing_thresholds():
         f'fail<{FAILURE_TIME:.3f}  Valid time ={VALID_TIME:.3f}'
     )
 ```
-After that, I can enter the `guessing stage`. For each process with each bit at each byte, I'll check the process's time multiple times to ensure that the `right bit` is actually correct, not because of other `unexpected error` that made the process `live` longer.
+After that, I can enter the `debit stage`. For each process with each bit at each byte, I'll check the process's time multiple times to ensure that the `right bit` is actually correct, not because of any `unexpected error` making the process `live` longer.
 ```py
 def oracle(idx =0 , mask = 0):
     set_bit_count = 0
