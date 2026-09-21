@@ -1,0 +1,17 @@
+[package]
+name = "chall"
+version = "0.1.0"
+edition = "2021"
+description = "NieR challenge generator"
+
+[[bin]]
+name = "chall"
+path = "chall.rs"
+
+[dependencies]
+num-bigint = { version = "0.4", features = ["rand"] }
+num-traits = "0.2"
+rand = "0.8"
+
+[profile.release]
+opt-level = 3

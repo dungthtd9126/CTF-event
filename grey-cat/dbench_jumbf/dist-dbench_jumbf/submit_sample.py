@@ -40,6 +40,8 @@ def main() -> int:
         output.extend(recv_until(sock, b"done\n"))
         sock.sendall(b"0\n")
         output.extend(recv_until(sock, b"goodbye\n"))
+        # test
+        # print(image.hex().encode())
 
     print(output.decode("utf-8", errors="replace"), end="")
     return 0

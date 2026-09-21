@@ -1,0 +1,14 @@
+version: '1'
+services:
+  bmpcutter3:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 64MB
+    ports:
+      - "5000:5000"

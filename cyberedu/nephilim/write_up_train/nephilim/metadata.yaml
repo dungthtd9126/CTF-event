@@ -1,0 +1,100 @@
+schema_version: "1.0"
+challenge_id: "nephilim"
+challenge_name: "NEPHILIM"
+slug: "nephilim"
+category: "kernel-pwn"
+event: "local supplied challenge bundle"
+year: 2026
+date_solved: "2026-09-19"
+status: "solved"
+memory_mode: "resume"
+solution_reuse: true
+split: "unassigned"
+
+artifact:
+  architecture: "x86-64"
+  os: "Linux"
+  hashes: []
+  files:
+    - "modules/nkrcu.ko"
+    - "modules/nkmon.ko"
+    - "modules/nknet.ko"
+    - "vmlinux"
+    - "bzImage"
+    - "initrd.cpio.gz"
+
+runtime:
+  libc: null
+  loader: null
+  kernel: "6.1.184"
+  interpreter: null
+  framework: null
+  versions:
+    - "QEMU x86-64"
+    - "one vCPU"
+
+mitigations:
+  - "SMEP"
+  - "SMAP"
+  - "PTI"
+  - "KASLR-capable kernel"
+constraints:
+  - "local QEMU only"
+  - "loopback-bound host forwarding"
+  - "NKTP op 5 payload must exceed 0x7f bytes"
+vulnerabilities:
+  - "snapshot raw-pointer use-after-free"
+  - "RCU lifetime gap"
+  - "kernel pointer disclosure"
+initial_primitives:
+  - "same-size allocator reclaim"
+  - "descriptor pointer disclosure"
+derived_primitives:
+  - "controlled indirect callback"
+  - "stack pivot"
+  - "root usermode helper"
+techniques:
+  - "same-cache stale-object reclaim"
+  - "kernel ROP through attacker-shaped callback"
+concepts:
+  - "metadata lock versus object lifetime"
+failures:
+  - "wait-mode helper completion on fake stack"
+  - "allocator order assumption"
+  - "mutable payload length shrink"
+heuristics:
+  - "assert cross-object address ordering"
+  - "assert serialized payload length"
+
+targets:
+  - "local QEMU guest UDP service"
+goal: "obtain the local challenge flag through the module bug"
+exploit_chain:
+  - "snapshot"
+  - "remove"
+  - "RCU sync"
+  - "same-size reclaim"
+  - "callback control"
+  - "stack pivot"
+  - "call_usermodehelper"
+  - "serial flag output"
+
+research_sources: []
+retrieval_cues:
+  - "kernel pwn"
+  - "RCU snapshot raw pointer"
+  - "same-size kmalloc reclaim"
+  - "background workqueue callback"
+  - "fake-stack call_usermodehelper"
+negative_cues:
+  - "object refcount remains held"
+  - "no asynchronous stale consumer"
+version_boundaries:
+  - "allocator ordering and helper internals depend on kernel build"
+near_duplicate_family: "kernel snapshot/RCU UAF with same-cache reclaim"
+
+training_export:
+  eligible: "needs_review"
+  omit_flag: true
+  omit_secrets: true
+  omit_private_chain_of_thought: true

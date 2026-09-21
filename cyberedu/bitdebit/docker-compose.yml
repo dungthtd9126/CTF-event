@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  bitdebit_remastered:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bitdebit_remastered-chal
+    container_name: bitdebit_remastered-chal
+
+    # NOT exposed on the host/public IP
+    expose:
+      - "1337"
+
+    restart: unless-stopped
+
+  ssh_tunnel:
+    build:
+      context: ./ssh-tunnel
+      dockerfile: Dockerfile
+    container_name: bitdebit-ssh-tunnel
+
+    # Publicly accessible SSH
+    ports:
+      - "2222:22"
+
+    depends_on:
+      - bitdebit_remastered
+
+    restart: unless-stopped

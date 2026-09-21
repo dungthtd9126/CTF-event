@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    pids_limit: 512
+    mem_limit: 512m
