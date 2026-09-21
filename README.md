@@ -1,0 +1,1 @@
+Updated `cyberedu ctf 2026` at 21 september 2026
