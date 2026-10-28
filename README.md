@@ -1,1 +1,2 @@
-Updated `cyberedu ctf 2026` at 21 september 2026
+- Updated `cyberedu ctf 2026` at 21 september 2026
+- Updated write up for [./securinets_2026/ekko](securinets_2026/ekko) ekko challenge
