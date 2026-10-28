@@ -256,3 +256,6 @@ The next chunk should be large enough for the `wild size` value to write somewhe
 ![alt text](assets/image-10.png)
 After I have overwritten `IO_list_all` with my fake `file struct` on the heap, I choose exit to activate my FSOP and get a shell.
 ![alt text](assets/image-11.png)
+
+# References
+- https://blog.buddurid.tech/2026/10/19/house-of-ekko
